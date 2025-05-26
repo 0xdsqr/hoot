@@ -1,0 +1,18 @@
+{
+  "name": "hoot",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "style:check": "prettier --check \"**/*.{ts,tsx,md}\" --ignore-path .gitignore",
+    "style:fix": "prettier --write \"**/*.{ts,tsx,md}\" --ignore-path .gitignore"
+  },
+  "workspaces": [
+    "packages/hoot"
+  ],
+  "devDependencies": {
+    "@types/bun": "latest",
+    "prettier": "3.5.3",
+    "typescript": "5.8.3"
+  },
+  "private": true
+}
