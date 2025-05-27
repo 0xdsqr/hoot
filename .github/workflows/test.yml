@@ -4,16 +4,14 @@ on: [push, pull_request]
 
 jobs:
   test:
-    runs-on: [nixos, self-hosted, dsqr-dotdev, dsqr]
+    runs-on: [nixos, self-hosted, hoot, dsqr]
     steps:
       - name: Checkout code
         uses: actions/checkout@v4.2.2
       
-      - name: Check Nix version
-        run: nix --version
-      
-      - name: Verify flake integrity
+      - name: Nix flake checks
         run: nix flake check
-      
-      - name: Show flake info
-        run: nix flake show
+        
+      - name: Generate coverage
+        run: |
+          nix develop -c bun run test:coverage:all

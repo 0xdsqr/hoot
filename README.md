@@ -1,5 +1,11 @@
 <div align="center">
 <img src="./.github/assets/hoot.svg" alt="Hoot react alternative" width="350"/>
+
+<p align="center">
+  <a href="https://github.com/0xdsqr/hoot/actions/workflows/test.yml"><img src="https://img.shields.io/github/actions/workflow/status/0xdsqr/hoot/test.yml?style=for-the-badge&logo=github&label=tests" alt="Tests Status"></a>
+  <a href="#"><img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript"></a>
+  <a href="#"><img src="https://img.shields.io/badge/coverage-99.65%25-brightgreen?style=for-the-badge&logo=codecov&logoColor=white" alt="Code Coverage"></a>
+</p>
 </div>
 
 [Hoot](https://github.com/0xdsqr/hoot) is a lightweight React-inspired framework built from the ground up to understand how modern UI libraries work under the hood. It's free and open source, implementing core React concepts with a clean, minimal API that's great for educational purposes and building simple applications.
@@ -28,13 +34,7 @@ Hoot currently provides a solid foundation with the following features:
 You can install hoot with most common package managers:
 
 | Package Manager | Command |
-|## Contributing
-
-Hey there! 👋 If you run into any issues or have ideas, please feel free to [file an issue](https://github.com/0xdsqr/hoot/issues). I built Hoot primarily for my own projects and learning, but I'm happy to consider pull requests if they align with the project's goals.
-
-That said, I can't promise I'll accept every PR since this was designed with my specific needs in mind. But don't let that stop you from suggesting improvements or reporting bugs - I really appreciate the feedback!
-
------------------|---------|
+|-----------------|---------|
 | **npm** | `npm install @dsqr/hoot@latest` |
 | **pnpm** | `pnpm add @dsqr/hoot@latest` |
 | **bun** | `bun add @dsqr/hoot@latest` |
@@ -45,6 +45,7 @@ That said, I can't promise I'll accept every PR since this was designed with my 
 Here's a basic example to get you started with Hoot:
 
 <sub>📄 main.js</sub>
+
 ```javascript
 import * as hoot from "@dsqr/hoot"
 import { router } from "./router.js"
@@ -68,19 +69,24 @@ hoot.renderApp(App, container)
 ```
 
 <sub>📄 router.js</sub>
+
 ```javascript
 import * as hoot from "@dsqr/hoot"
 import { routes } from "./routes/index.js"
 
 export const router = hoot.createRouter({
   routes,
-  notFound: () => hoot.createElement("div", {}, 
-    hoot.createElement("h1", {}, "404 - Page Not Found")
-  )
+  notFound: () =>
+    hoot.createElement(
+      "div",
+      {},
+      hoot.createElement("h1", {}, "404 - Page Not Found"),
+    ),
 })
 ```
 
 <sub>📄 routes/index.js</sub>
+
 ```javascript
 import * as hoot from "@dsqr/hoot"
 import { HomePage } from "./home.js"
@@ -93,12 +99,13 @@ export const routes = [
 ```
 
 <sub>📄 routes/home.js</sub>
+
 ```javascript
 import * as hoot from "@dsqr/hoot"
 
 export function HomePage() {
   const navigate = hoot.useNavigate()
-  
+
   return hoot.createElement(
     "div",
     {},
@@ -114,12 +121,13 @@ export function HomePage() {
 ```
 
 <sub>📄 routes/about.js</sub>
+
 ```javascript
 import * as hoot from "@dsqr/hoot"
 
 export function AboutPage() {
   const navigate = hoot.useNavigate()
-  
+
   return hoot.createElement(
     "div",
     {},
@@ -141,6 +149,7 @@ export function AboutPage() {
 The `createElement` function is the foundation of Hoot. It creates virtual DOM elements that can be rendered to the page.
 
 **Basic element creation**
+
 ```javascript
 import * as hoot from "@dsqr/hoot"
 
@@ -150,20 +159,22 @@ function MyComponent() {
 ```
 
 **Element with properties**
+
 ```javascript
 function StyledComponent() {
   return hoot.createElement(
-    "div", 
-    { 
+    "div",
+    {
       style: "color: blue; padding: 10px;",
-      className: "my-class"
-    }, 
-    "Styled content"
+      className: "my-class",
+    },
+    "Styled content",
   )
 }
 ```
 
 **Nested elements**
+
 ```javascript
 function NestedComponent() {
   return hoot.createElement(
@@ -174,8 +185,8 @@ function NestedComponent() {
     hoot.createElement(
       "button",
       { onclick: () => alert("Clicked!") },
-      "Click me"
-    )
+      "Click me",
+    ),
   )
 }
 ```
@@ -187,6 +198,7 @@ function NestedComponent() {
 Hoot provides two main rendering functions: `render` for simple elements and `renderApp` for full applications with routing.
 
 **Simple rendering**
+
 ```javascript
 import * as hoot from "@dsqr/hoot"
 
@@ -197,6 +209,7 @@ hoot.render(element, container)
 ```
 
 **Application rendering**
+
 ```javascript
 import * as hoot from "@dsqr/hoot"
 import { router } from "./router.js"
@@ -205,7 +218,7 @@ function App() {
   return hoot.createElement(
     "div",
     { style: "padding: 20px;" },
-    hoot.RouterProvider({ router })
+    hoot.RouterProvider({ router }),
   )
 }
 
@@ -220,6 +233,7 @@ hoot.renderApp(App, container)
 Hoot includes a built-in router for single-page applications with navigation hooks.
 
 **Setting up routes**
+
 ```javascript
 import * as hoot from "@dsqr/hoot"
 import { HomePage } from "./routes/home.js"
@@ -229,43 +243,41 @@ export const router = hoot.createRouter({
   routes: [
     hoot.createRoute("/", HomePage),
     hoot.createRoute("/about", AboutPage),
-    hoot.createRoute("/users/:id", UserPage)
+    hoot.createRoute("/users/:id", UserPage),
   ],
-  notFound: () => hoot.createElement("div", {}, "404 - Not Found")
+  notFound: () => hoot.createElement("div", {}, "404 - Not Found"),
 })
 ```
 
 **Navigation between routes**
+
 ```javascript
 function Navigation() {
   const navigate = hoot.useNavigate()
-  
+
   return hoot.createElement(
     "nav",
     {},
+    hoot.createElement("button", { onclick: () => navigate("/") }, "Home"),
     hoot.createElement(
       "button",
-      { onclick: () => navigate("/") },
-      "Home"
-    ),
-    hoot.createElement(
-      "button", 
       { onclick: () => navigate("/about") },
-      "About"
-    )
+      "About",
+    ),
   )
 }
 ```
 
 **Accessing router in components**
+
 ```javascript
 function RouterInfo() {
   const router = hoot.useRouter()
-  
+
   return hoot.createElement(
     "div",
     {},
-    `Current path: ${window.location.pathname}`
+    `Current path: ${window.location.pathname}`,
   )
 }
 ```
@@ -277,21 +289,19 @@ function RouterInfo() {
 Handle user interactions by attaching event listeners to elements.
 
 **Click events**
+
 ```javascript
 function ClickableButton() {
   const handleClick = () => {
     console.log("Button clicked!")
   }
-  
-  return hoot.createElement(
-    "button",
-    { onclick: handleClick },
-    "Click me"
-  )
+
+  return hoot.createElement("button", { onclick: handleClick }, "Click me")
 }
 ```
 
 **Form handling**
+
 ```javascript
 function SimpleForm() {
   const handleSubmit = (event) => {
@@ -299,16 +309,16 @@ function SimpleForm() {
     const formData = new FormData(event.target)
     console.log("Form data:", Object.fromEntries(formData))
   }
-  
+
   return hoot.createElement(
     "form",
     { onsubmit: handleSubmit },
-    hoot.createElement("input", { 
-      type: "text", 
-      name: "username", 
-      placeholder: "Enter username" 
+    hoot.createElement("input", {
+      type: "text",
+      name: "username",
+      placeholder: "Enter username",
     }),
-    hoot.createElement("button", { type: "submit" }, "Submit")
+    hoot.createElement("button", { type: "submit" }, "Submit"),
   )
 }
 ```
@@ -332,3 +342,9 @@ function SimpleForm() {
 ---
 
 Want to see Hoot in action? Check out [dsqr.dev](https://dsqr.dev) where it's being used in real projects.
+
+## Contributing
+
+If you run into any issues or have ideas, please feel free to [file an issue](https://github.com/0xdsqr/hoot/issues). I built Hoot primarily for my own projects and learning, but I'm happy to consider pull requests if they align with the project's goals.
+
+That said, I can't promise I'll accept every PR since this was designed with my specific needs in mind. But don't let that stop you from suggesting improvements or reporting bugs - I really appreciate the feedback!

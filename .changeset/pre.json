@@ -4,7 +4,5 @@
   "initialVersions": {
     "@dsqr/hoot": "0.0.0"
   },
-  "changesets": [
-    "mean-cows-repair"
-  ]
+  "changesets": ["mean-cows-repair"]
 }

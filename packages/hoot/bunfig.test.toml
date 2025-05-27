@@ -1,0 +1,10 @@
+[test]
+# Include setup file for all tests
+preload = ["./test/setup.ts"]
+
+# Test file patterns
+extensions = ["test.ts", "spec.ts"]
+
+# Test coverage settings
+coverage = true
+coverageThreshold = 50

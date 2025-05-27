@@ -2,29 +2,35 @@
   description = "🟪🦉 hoot - my implementation of a react like framework 🦉🟪";
   
   inputs = {
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/release-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
   };
   
-  outputs = { self, nixpkgs-unstable, nixpkgs-stable, flake-utils }:
+  outputs = { self, nixpkgs, flake-utils }:
     flake-utils.lib.eachDefaultSystem (system:
       let
-        pkgs-unstable = import nixpkgs-unstable { inherit system; };
-        pkgs-stable = import nixpkgs-stable { inherit system; };
+        pkgs = import nixpkgs { inherit system; };
       in {
-        devShells = {
-          default = pkgs-unstable.mkShell {
-            buildInputs = with pkgs-unstable; [
-              nodejs_22
-              git
-              bun
-            ];
-            
-            shellHook = ''
-              echo "🟪 bingbong 🟪"
-            '';
-          };
+        devShells.default = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            nodejs_22
+            git
+            bun
+          ];
+          
+          shellHook = ''
+            echo "🟪 bingbong 🟪"
+          '';
+        };
+        
+        checks = {
+          test = pkgs.runCommand "test" {
+            buildInputs = with pkgs; [ bun ];
+          } ''
+            cd ${self}
+            bun run test:coverage:all
+            touch $out
+          '';
         };
       });
 }

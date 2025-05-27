@@ -5,7 +5,9 @@
   "scripts": {
     "release": "bun run --filter=\"@dsqr/hoot\" build && changeset publish",
     "style:check": "prettier --check \"**/*.{ts,tsx,md,json}\" --ignore-path .gitignore",
-    "style:fix": "prettier --write \"**/*.{ts,tsx,md,json}\" --ignore-path .gitignore"
+    "style:fix": "prettier --write \"**/*.{ts,tsx,md,json}\" --ignore-path .gitignore",
+    "test:coverage:hoot": "bun run --filter=\"@dsqr/hoot\" test:coverage",
+    "test:coverage:all": "bun run --parallel --filter=\"./packages/*\" test:coverage"
   },
   "workspaces": [
     "packages/hoot"
