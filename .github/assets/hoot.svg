@@ -66,8 +66,19 @@
   <ellipse cx="125" cy="48" rx="2.5" ry="1" fill="#FFB6C1" opacity="0.6"/>
   <ellipse cx="155" cy="48" rx="2.5" ry="1" fill="#FFB6C1" opacity="0.6"/>
   
-  <!-- Modern accent elements -->
-  <circle cx="50" cy="30" r="1.5" fill="#9370DB" opacity="0.3"/>
-  <circle cx="230" cy="40" r="2" fill="#7B68EE" opacity="0.3"/>
-  <circle cx="45" cy="60" r="1" fill="#DDA0DD" opacity="0.4"/>
+  <!-- Modern accent elements - Purple stars around the bird -->
+  <!-- Stars on the left -->
+  <path d="M50 30 L52 36 L58 36 L53 40 L55 46 L50 42 L45 46 L47 40 L42 36 L48 36 Z" fill="#9370DB" opacity="0.6" transform="scale(0.4)"/>
+  <path d="M45 60 L47 66 L53 66 L48 70 L50 76 L45 72 L40 76 L42 70 L37 66 L43 66 Z" fill="#8A2BE2" opacity="0.5" transform="scale(0.3)"/>
+  <path d="M70 50 L72 56 L78 56 L73 60 L75 66 L70 62 L65 66 L67 60 L62 56 L68 56 Z" fill="#DDA0DD" opacity="0.7" transform="scale(0.5)"/>
+  
+  <!-- Stars on the right -->
+  <path d="M230 40 L232 46 L238 46 L233 50 L235 56 L230 52 L225 56 L227 50 L222 46 L228 46 Z" fill="#8A2BE2" opacity="0.6" transform="scale(0.4)"/>
+  <path d="M220 60 L222 66 L228 66 L223 70 L225 76 L220 72 L215 76 L217 70 L212 66 L218 66 Z" fill="#9370DB" opacity="0.5" transform="scale(0.3)"/>
+  <path d="M200 30 L202 36 L208 36 L203 40 L205 46 L200 42 L195 46 L197 40 L192 36 L198 36 Z" fill="#DDA0DD" opacity="0.7" transform="scale(0.5)"/>
+  
+  <!-- Stars on top -->
+  <path d="M140 15 L142 21 L148 21 L143 25 L145 31 L140 27 L135 31 L137 25 L132 21 L138 21 Z" fill="#8A2BE2" opacity="0.6" transform="scale(0.4)"/>
+  <path d="M110 20 L112 26 L118 26 L113 30 L115 36 L110 32 L105 36 L107 30 L102 26 L108 26 Z" fill="#9370DB" opacity="0.5" transform="scale(0.3)"/>
+  <path d="M170 20 L172 26 L178 26 L173 30 L175 36 L170 32 L165 36 L167 30 L162 26 L168 26 Z" fill="#DDA0DD" opacity="0.7" transform="scale(0.5)"/>
 </svg>
