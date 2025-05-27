@@ -1,0 +1,10 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@dsqr/hoot": "0.0.0"
+  },
+  "changesets": [
+    "mean-cows-repair"
+  ]
+}

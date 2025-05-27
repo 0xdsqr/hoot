@@ -3,8 +3,9 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
-    "style:check": "prettier --check \"**/*.{ts,tsx,md}\" --ignore-path .gitignore",
-    "style:fix": "prettier --write \"**/*.{ts,tsx,md}\" --ignore-path .gitignore"
+    "release": "bun run --filter=\"@dsqr/hoot\" build && changeset publish",
+    "style:check": "prettier --check \"**/*.{ts,tsx,md,json}\" --ignore-path .gitignore",
+    "style:fix": "prettier --write \"**/*.{ts,tsx,md,json}\" --ignore-path .gitignore"
   },
   "workspaces": [
     "packages/hoot"
@@ -14,5 +15,8 @@
     "prettier": "3.5.3",
     "typescript": "5.8.3"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@changesets/cli": "2.29.4"
+  }
 }
