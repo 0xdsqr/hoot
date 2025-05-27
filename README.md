@@ -1,5 +1,5 @@
 <div align="center">
-<img src="./assets/hoot.svg" alt="Hoot react alternative" width="350"/>
+<img src="./.github/assets/hoot.svg" alt="Hoot react alternative" width="350"/>
 </div>
 
 [Hoot](https://github.com/0xdsqr/hoot) is a lightweight React-inspired framework built from the ground up to understand how modern UI libraries work under the hood. It's free and open source, implementing core React concepts with a clean, minimal API that's great for educational purposes and building simple applications.
